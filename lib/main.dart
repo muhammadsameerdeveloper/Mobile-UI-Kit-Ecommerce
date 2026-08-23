@@ -1,3 +1,5 @@
+import 'package:ecommerce/screens/splash_view.dart';
+import 'package:ecommerce/utils/size_config.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,6 +11,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    SizeConfig.init(context);
+
+    return MaterialApp(debugShowCheckedModeBanner: false, home: SplashView());
   }
 }
