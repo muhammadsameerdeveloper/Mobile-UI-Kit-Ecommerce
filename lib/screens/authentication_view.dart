@@ -1,12 +1,11 @@
-import 'package:ecommerce/screens/authentication_view.dart';
 import 'package:ecommerce/utils/app_colors.dart';
 import 'package:ecommerce/utils/size_config.dart';
 import 'package:ecommerce/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class WelcomeView extends StatelessWidget {
-  const WelcomeView({super.key});
+class AuthenticationView extends StatelessWidget {
+  const AuthenticationView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +13,9 @@ class WelcomeView extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            color: AppColors.orangiColor,
-            width: SizeConfig.width,
             height: SizeConfig.height * 0.6,
+            width: SizeConfig.width,
+            color: AppColors.orangiColor,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -27,47 +26,41 @@ class WelcomeView extends StatelessWidget {
                     SizedBox(width: 40),
                   ],
                 ),
-                Image.asset("assets/images/welcome2.png"),
+                Image.asset(
+                  "assets/images/Authentication.png",
+                  width: SizeConfig.width * 0.57,
+                ),
                 SizedBox(height: 5),
                 Image.asset("assets/images/welcome3.png"),
               ],
             ),
           ),
           Container(
-            color: AppColors.whiteColor,
-            height: SizeConfig.height * 0.4,
-            width: SizeConfig.width,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Get The Freshest Fruit Salad Combo",
+                  "What is your Firstname?",
                   style: GoogleFonts.poppins(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: AppColors.blackColor,
                   ),
                 ),
-                SizedBox(height: 5),
-                Text(
-                  "We deliver the best and freshest fruit salad in \ntown. Order for a combo today!!!",
-                  style: GoogleFonts.poppins(
-                    fontSize: 12.5,
-                    color: AppColors.textGreyColor,
+                SizedBox(
+                  width: 300,
+                  height: 40,
+                  child: TextField(
+                    keyboardType: TextInputType.text,
+                    decoration: InputDecoration(
+                      hintText: "Tony",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
                   ),
                 ),
-                SizedBox(height: 20),
-                CustomButton(
-                  text: "Let's Continue",
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const AuthenticationView(),
-                      ),
-                    );
-                  },
-                ),
+                CustomButton(text: "Start Ordering", onPressed: () {}),
               ],
             ),
           ),
