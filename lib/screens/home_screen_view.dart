@@ -1,5 +1,6 @@
 import 'package:ecommerce/constent.dart';
 import 'package:ecommerce/constents.dart';
+import 'package:ecommerce/screens/add_basket_view.dart';
 import 'package:ecommerce/utils/app_colors.dart';
 import 'package:ecommerce/utils/size_config.dart';
 import 'package:ecommerce/widgets/custom_card.dart';
@@ -102,7 +103,18 @@ class _HomeScreenViewState extends State<HomeScreenView> {
                         title: constent[index]["title"]!,
                         price: constent[index]["price"]!,
                         image: constent[index]["image"]!,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AddBasketView(
+                                image: constent[index]["image"]!,
+                                title: constent[index]["title"]!,
+                                price: constent[index]["price"]!,
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     );
                   },
