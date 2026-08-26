@@ -1,6 +1,9 @@
 import 'package:ecommerce/constent.dart';
+import 'package:ecommerce/constents.dart';
 import 'package:ecommerce/utils/app_colors.dart';
+import 'package:ecommerce/utils/size_config.dart';
 import 'package:ecommerce/widgets/custom_card.dart';
+import 'package:ecommerce/widgets/custom_card_two.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,6 +18,7 @@ class HomeScreenView extends StatefulWidget {
 class _HomeScreenViewState extends State<HomeScreenView> {
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       drawerScrimColor: Colors.transparent,
@@ -41,68 +45,140 @@ class _HomeScreenViewState extends State<HomeScreenView> {
         ],
       ),
       drawer: Drawer(),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Hello Tony, What fruit salad \ncombo do you want today?",
-              style: GoogleFonts.poppins(
-                fontSize: 15,
-                color: AppColors.blackColor,
-                fontWeight: FontWeight.w600,
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Padding(
+          padding: const EdgeInsets.only(left: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Hello Tony, What fruit salad \ncombo do you want today?",
+                style: GoogleFonts.poppins(
+                  fontSize: 15,
+                  color: AppColors.blackColor,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
-            ),
-            SizedBox(height: 20),
-            Row(
-              children: [
-                SizedBox(
-                  width: 270,
-                  height: 50,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.search),
-                      hintText: "Search for fruit salad combos",
-                      hintStyle: TextStyle(fontSize: 14),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
+              SizedBox(height: 20),
+              Row(
+                children: [
+                  SizedBox(
+                    width: 270,
+                    height: 50,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.search),
+                        hintText: "Search for fruit salad combos",
+                        hintStyle: TextStyle(fontSize: 14),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                       ),
                     ),
                   ),
+                  SizedBox(width: 20),
+                  FaIcon(FontAwesomeIcons.exchange),
+                ],
+              ),
+              SizedBox(height: 30),
+              Text(
+                "Recommended Combo",
+                style: GoogleFonts.poppins(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
                 ),
-                SizedBox(width: 20),
-                FaIcon(FontAwesomeIcons.exchange),
-              ],
-            ),
-            SizedBox(height: 30),
-            Text(
-              "Recommended Combo",
-              style: GoogleFonts.poppins(
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
               ),
-            ),
-            SizedBox(height: 20),
-            SizedBox(
-              height: 180,
-              child: ListView.builder(
+              SizedBox(height: 20),
+              SizedBox(
+                height: SizeConfig.height * 0.25,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: constent.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: EdgeInsets.only(right: 12, top: 5, bottom: 5),
+                      child: CustomCard(
+                        title: constent[index]["title"]!,
+                        price: constent[index]["price"]!,
+                        image: constent[index]["image"]!,
+                        onTap: () {},
+                      ),
+                    );
+                  },
+                ),
+              ),
+              SizedBox(height: 30),
+              SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                itemCount: constent.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: EdgeInsets.only(right: 12),
-                    child: CustomCard(
-                      title: constent[index]["title"]!,
-                      price: constent[index]["price"]!,
-                      image: constent[index]["image"]!,
-                      onTap: () {},
+                child: Row(
+                  children: [
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        "Hottest",
+                        style: GoogleFonts.poppins(
+                          color: AppColors.blackColor,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
                     ),
-                  );
-                },
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        "Popular",
+                        style: GoogleFonts.poppins(
+                          color: AppColors.textGreyColor,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        "New combo",
+                        style: GoogleFonts.poppins(
+                          color: AppColors.textGreyColor,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        "Top",
+                        style: GoogleFonts.poppins(
+                          color: AppColors.textGreyColor,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+              SizedBox(height: 30),
+              SizedBox(
+                height: 165,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: data.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: EdgeInsets.only(right: 12),
+                      child: CustomCardTwo(
+                        title: data[index]["title"],
+                        price: data[index]["price"],
+                        image: data[index]["image"],
+                        color: data[index]["color"],
+                        onTap: () {},
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

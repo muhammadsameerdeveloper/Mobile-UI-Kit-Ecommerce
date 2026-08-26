@@ -9,4 +9,9 @@ final List<Map<String, String>> constent = [
     "title": "Berry mango combo",
     "price": "₦ 8,000",
   },
+  {
+    "image": "assets/images/home2.png",
+    "title": "Berry mango combo",
+    "price": "₦ 8,000",
+  },
 ];
