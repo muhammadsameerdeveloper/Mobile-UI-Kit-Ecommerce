@@ -1,3 +1,4 @@
+import 'package:ecommerce/screens/home_screen_view.dart';
 import 'package:ecommerce/utils/app_colors.dart';
 import 'package:ecommerce/utils/size_config.dart';
 import 'package:ecommerce/widgets/custom_button.dart';
@@ -60,7 +61,15 @@ class AuthenticationView extends StatelessWidget {
                     ),
                   ),
                 ),
-                CustomButton(text: "Start Ordering", onPressed: () {}),
+                CustomButton(
+                  text: "Start Ordering",
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomeScreenView()),
+                    );
+                  },
+                ),
               ],
             ),
           ),
