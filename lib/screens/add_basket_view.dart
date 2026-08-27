@@ -21,52 +21,71 @@ class _AddBasketViewState extends State<AddBasketView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            height: SizeConfig.height * 0.45,
-            width: SizeConfig.width,
-            color: AppColors.orangiColor,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 40, left: 20),
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.whiteColor,
-                    ),
-                    child: Text(
-                      "<Go back",
-                      style: TextStyle(color: AppColors.blackColor),
+      body: SizedBox(
+        height: SizeConfig.height,
+        width: SizeConfig.width,
+        child: Stack(
+          children: [
+            Container(
+              height: SizeConfig.height * 0.45,
+              width: SizeConfig.width,
+              color: AppColors.orangiColor,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 40, right: 200),
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.whiteColor,
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.arrow_back_ios,
+                            size: 15,
+                            color: AppColors.blackColor,
+                          ),
+                          Text(
+                            "Go Back",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: AppColors.blackColor,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(height: 20),
-                Center(
-                  child: Image.asset(
-                    widget.image,
-                    width: SizeConfig.width * 0.55,
-                    fit: BoxFit.contain,
+                  Center(
+                    child: Image.asset(
+                      widget.image,
+                      width: SizeConfig.width * 0.45,
+                      fit: BoxFit.contain,
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            height: SizeConfig.height * 0.55,
-            width: SizeConfig.width,
-
-            decoration: BoxDecoration(
-              color: AppColors.whiteColor,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20),
-                topRight: Radius.circular(20),
+                ],
               ),
             ),
-          ),
-        ],
+
+            Positioned(
+              top: SizeConfig.height * 0.40,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: Container(
+                decoration: const BoxDecoration(
+                  color: AppColors.whiteColor,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(25),
+                    topRight: Radius.circular(25),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
