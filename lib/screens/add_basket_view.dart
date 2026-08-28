@@ -1,5 +1,6 @@
 import 'package:ecommerce/utils/app_colors.dart';
 import 'package:ecommerce/utils/size_config.dart';
+import 'package:ecommerce/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -86,7 +87,7 @@ class _AddBasketViewState extends State<AddBasketView> {
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 30, right: 45),
+                      padding: const EdgeInsets.only(top: 30, right: 80),
                       child: Text(
                         widget.title,
                         style: GoogleFonts.poppins(
@@ -136,6 +137,7 @@ class _AddBasketViewState extends State<AddBasketView> {
                           ),
                           onTap: () {},
                         ),
+                        SizedBox(width: 130),
                         Row(
                           children: [
                             Text(
@@ -150,7 +152,86 @@ class _AddBasketViewState extends State<AddBasketView> {
                         ),
                       ],
                     ),
-                  ],
+                    SizedBox(height: 30),
+                    Container(height: 1, width: 330, color: Colors.black12),
+                    SizedBox(height: 30),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 125),
+                      child: Column(
+                        children: [
+                          Text(
+                            "One Pack Contains:",
+                            style: GoogleFonts.poppins(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SizedBox(height: 5),
+                          Container(
+                            height: 2,
+                            width: 200,
+                            color: AppColors.orangiColor,
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      "Red Quinoa Lime, Honey, Blueberries, Strawberries,\nMango, Fresh mint",
+                      style: GoogleFonts.poppins(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.textGreyColor,
+                      ),
+                    ),
+                    SizedBox(height: 25),
+                    Container(height: 1, width: 330, color: Colors.black12),
+                    SizedBox(height: 25),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 30),
+                      child: Text(
+                        "If you are looking for a new fruit salad to eat today, \nquinoa is the perfect brunch for you. make",
+                        style: GoogleFonts.poppins(
+                          fontSize: 11,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.blackColor,
+                        ),
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: GestureDetector(
+                            child: Container(
+                              height: 42,
+                              width: 42,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: AppColors.lightPinkColor,
+                              ),
+                              child: Icon(
+                                Icons.favorite_border_outlined,
+                                color: AppColors.orangiColor,
+                              ),
+                            ),
+                            onTap: () {},
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20),
+                          child: SizedBox(
+                            height: 50,
+                            width: 200,
+                            child: CustomButton(
+                              text: "Add to basket",
+                              onPressed: () {},
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ], //main column
                 ),
               ),
             ),
