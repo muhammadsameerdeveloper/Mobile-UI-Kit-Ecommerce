@@ -1,3 +1,4 @@
+import 'package:ecommerce/screens/order_list_view.dart';
 import 'package:ecommerce/utils/app_colors.dart';
 import 'package:ecommerce/utils/size_config.dart';
 import 'package:ecommerce/widgets/custom_button.dart';
@@ -198,14 +199,15 @@ class _AddBasketViewState extends State<AddBasketView> {
                         ),
                       ),
                     ),
+                    SizedBox(height: 30),
                     Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 10),
+                          padding: const EdgeInsets.only(left: 20),
                           child: GestureDetector(
                             child: Container(
-                              height: 42,
-                              width: 42,
+                              height: 43,
+                              width: 43,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: AppColors.lightPinkColor,
@@ -219,13 +221,20 @@ class _AddBasketViewState extends State<AddBasketView> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 20),
+                          padding: const EdgeInsets.only(left: 83),
                           child: SizedBox(
                             height: 50,
                             width: 200,
                             child: CustomButton(
                               text: "Add to basket",
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => OrderListView(),
+                                  ),
+                                );
+                              },
                             ),
                           ),
                         ),
