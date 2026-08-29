@@ -28,7 +28,7 @@ class WelcomeView extends StatelessWidget {
                   ],
                 ),
                 Image.asset("assets/images/welcome2.png"),
-                SizedBox(height: 5),
+                SizedBox(height: 10),
                 Image.asset("assets/images/welcome3.png"),
               ],
             ),
@@ -37,38 +37,46 @@ class WelcomeView extends StatelessWidget {
             color: AppColors.whiteColor,
             height: SizeConfig.height * 0.4,
             width: SizeConfig.width,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Get The Freshest Fruit Salad Combo",
-                  style: GoogleFonts.poppins(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                    color: AppColors.blackColor,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 50, right: 20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    "Get The Freshest Fruit Salad Combo",
+                    style: GoogleFonts.poppins(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.blackColor,
+                    ),
                   ),
-                ),
-                SizedBox(height: 5),
-                Text(
-                  "We deliver the best and freshest fruit salad in \ntown. Order for a combo today!!!",
-                  style: GoogleFonts.poppins(
-                    fontSize: 12.5,
-                    color: AppColors.textGreyColor,
+                  SizedBox(height: 10),
+                  Text(
+                    "We deliver the best and freshest fruit salad in \ntown. Order for a combo today!!!",
+                    style: GoogleFonts.poppins(
+                      fontSize: 12.5,
+                      color: AppColors.textGreyColor,
+                    ),
                   ),
-                ),
-                SizedBox(height: 20),
-                CustomButton(
-                  text: "Let's Continue",
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const AuthenticationView(),
-                      ),
-                    );
-                  },
-                ),
-              ],
+                  SizedBox(height: 50),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: CustomButton(
+                      height: 50,
+                      width: 320,
+                      text: "Let's Continue",
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const AuthenticationView(),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],

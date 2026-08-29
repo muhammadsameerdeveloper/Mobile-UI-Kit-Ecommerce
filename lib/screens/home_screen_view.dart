@@ -45,7 +45,38 @@ class _HomeScreenViewState extends State<HomeScreenView> {
           ),
         ],
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 50),
+          child: Column(
+            children: [
+              ListTile(
+                tileColor: AppColors.orangiColor,
+                leading: CircleAvatar(
+                  radius: 35,
+                  backgroundImage: NetworkImage(
+                    "https://publicdomainvectors.org/photos/abstract-user-flat-3.png",
+                  ),
+                ),
+                title: Text(
+                  "Muhammad Sameer",
+                  style: GoogleFonts.poppins(
+                    color: AppColors.whiteColor,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                subtitle: Text(
+                  "Welcome",
+                  style: GoogleFonts.poppins(
+                    color: AppColors.whiteColor,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(

@@ -29,7 +29,7 @@ class AuthenticationView extends StatelessWidget {
                 ),
                 Image.asset(
                   "assets/images/Authentication.png",
-                  width: SizeConfig.width * 0.57,
+                  width: SizeConfig.width * 0.80,
                 ),
                 SizedBox(height: 5),
                 Image.asset("assets/images/welcome3.png"),
@@ -37,40 +37,52 @@ class AuthenticationView extends StatelessWidget {
             ),
           ),
           Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "What is your Firstname?",
-                  style: GoogleFonts.poppins(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                    color: AppColors.blackColor,
-                  ),
-                ),
-                SizedBox(
-                  width: 300,
-                  height: 40,
-                  child: TextField(
-                    keyboardType: TextInputType.text,
-                    decoration: InputDecoration(
-                      hintText: "Tony",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 50, right: 10),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 115),
+                    child: Text(
+                      "What is your Firstname?",
+                      style: GoogleFonts.poppins(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.blackColor,
                       ),
                     ),
                   ),
-                ),
-                CustomButton(
-                  text: "Start Ordering",
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomeScreenView()),
-                    );
-                  },
-                ),
-              ],
+                  SizedBox(height: 15),
+                  SizedBox(
+                    width: 320,
+                    height: 50,
+                    child: TextField(
+                      keyboardType: TextInputType.text,
+                      decoration: InputDecoration(
+                        hintText: "Tony",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 35),
+                  CustomButton(
+                    height: 50,
+                    width: 320,
+                    text: "Start Ordering",
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomeScreenView(),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         ],
