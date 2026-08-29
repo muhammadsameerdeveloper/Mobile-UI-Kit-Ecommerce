@@ -20,21 +20,58 @@ class OrderListView extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 20, top: 20),
-        child: ListTile(
-          contentPadding: EdgeInsets.zero,
-          minTileHeight: 100,
-
-          leading: Container(
-            height: 90,
-            width: 70,
-            decoration: BoxDecoration(
-              color: Colors.black,
-              borderRadius: BorderRadius.circular(10),
+        padding: const EdgeInsets.only(top: 40, left: 20),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height: 80,
+              width: 80,
+              decoration: BoxDecoration(
+                color: Colors.amber,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: Image.asset(
+                  "assets/images/home3.png",
+                  height: 50,
+                  width: 50,
+                  fit: BoxFit.contain,
+                ),
+              ),
             ),
-          ),
-
-          title: const Text("Product Name"),
+            SizedBox(width: 20),
+            Padding(
+              padding: const EdgeInsets.only(top: 12),
+              child: Column(
+                children: [
+                  Text(
+                    "Quinoa fruit salad",
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 100),
+                    child: Text(
+                      "2packs",
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 30, left: 10),
+              child: Text("₦ 20,000"),
+            ),
+          ],
         ),
       ),
     );
