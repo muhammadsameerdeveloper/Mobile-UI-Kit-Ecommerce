@@ -1,12 +1,14 @@
+import 'package:ecommerce/app_data.dart';
 import 'package:ecommerce/utils/app_colors.dart';
 import 'package:ecommerce/utils/size_config.dart';
 import 'package:flutter/material.dart';
 
 class CustomCard extends StatefulWidget {
   final String title;
-  final String price;
+  final int price;
   final String image;
   final VoidCallback onTap;
+  final Function(bool) onFavorite;
 
   const CustomCard({
     super.key,
@@ -14,6 +16,7 @@ class CustomCard extends StatefulWidget {
     required this.price,
     required this.image,
     required this.onTap,
+    required this.onFavorite,
   });
 
   @override
@@ -53,6 +56,7 @@ class _CustomCardState extends State<CustomCard> {
                     setState(() {
                       favorites = !favorites;
                     });
+                    widget.onFavorite(favorites);
                   },
                   child: Icon(
                     favorites ? Icons.favorite : Icons.favorite_border_outlined,
@@ -68,8 +72,18 @@ class _CustomCardState extends State<CustomCard> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(widget.price),
-                Icon(Icons.add_circle_outline, color: AppColors.orangiColor),
+                Text("${(widget.price) * addCount}"),
+                GestureDetector(
+                  child: Icon(
+                    Icons.add_circle_outline,
+                    color: AppColors.orangiColor,
+                  ),
+                  onTap: () {
+                    setState(() {
+                      addCount++;
+                    });
+                  },
+                ),
               ],
             ),
           ],

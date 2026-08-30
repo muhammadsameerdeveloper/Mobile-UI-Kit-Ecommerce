@@ -1,3 +1,5 @@
+import 'package:ecommerce/basket_data.dart';
+import 'package:ecommerce/basket_model.dart';
 import 'package:ecommerce/constent.dart';
 import 'package:ecommerce/constents.dart';
 import 'package:ecommerce/screens/add_basket_view.dart';
@@ -10,7 +12,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreenView extends StatefulWidget {
-  const HomeScreenView({super.key});
+  final String? name;
+  const HomeScreenView({super.key, this.name});
 
   @override
   State<HomeScreenView> createState() => _HomeScreenViewState();
@@ -59,7 +62,7 @@ class _HomeScreenViewState extends State<HomeScreenView> {
                   ),
                 ),
                 title: Text(
-                  "Muhammad Sameer",
+                  widget.name == null ? "Unknown" : widget.name!,
                   style: GoogleFonts.poppins(
                     color: AppColors.whiteColor,
                     fontWeight: FontWeight.w500,
@@ -145,6 +148,20 @@ class _HomeScreenViewState extends State<HomeScreenView> {
                               ),
                             ),
                           );
+                        },
+                        onFavorite: (isFavorite) {
+                          final item = BasketModel(
+                            title: constent[index]["title"]!,
+                            price: constent[index]["price"]!,
+                            image: constent[index]["image"]!,
+                          );
+                          if (isFavorite) {
+                            basketList.add(item);
+                          } else {
+                            basketList.removeWhere(
+                              (element) => element.title == item.title,
+                            );
+                          }
                         },
                       ),
                     );

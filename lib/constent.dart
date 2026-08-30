@@ -1,17 +1,17 @@
-final List<Map<String, String>> constent = [
+final List<Map<String, dynamic>> constent = [
   {
     "image": "assets/images/home1.png",
     "title": "Honey lime combo",
-    "price": "₦ 2,000",
+    "price": 2000,
   },
   {
     "image": "assets/images/home2.png",
     "title": "Berry mango combo",
-    "price": "₦ 8,000",
+    "price": 8000,
   },
   {
     "image": "assets/images/home2.png",
     "title": "Berry mango combo",
-    "price": "₦ 8,000",
+    "price": 8000,
   },
 ];
