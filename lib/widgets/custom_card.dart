@@ -74,7 +74,7 @@ class _CustomCardState extends State<CustomCard> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "$totalPrice",
+                  "₦ $totalPrice",
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
                 GestureDetector(

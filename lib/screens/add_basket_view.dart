@@ -7,7 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AddBasketView extends StatefulWidget {
   final String title;
-  final String price;
+  final int price;
   final String image;
   const AddBasketView({
     super.key,
@@ -21,8 +21,10 @@ class AddBasketView extends StatefulWidget {
 }
 
 class _AddBasketViewState extends State<AddBasketView> {
+  int addCount = 1;
   @override
   Widget build(BuildContext context) {
+    int totalPrice = widget.price * addCount;
     return Scaffold(
       body: SizedBox(
         height: SizeConfig.height,
@@ -118,10 +120,16 @@ class _AddBasketViewState extends State<AddBasketView> {
                               color: AppColors.blackColor,
                             ),
                           ),
-                          onTap: () {},
+                          onTap: () {
+                            if (addCount > 1) {
+                              setState(() {
+                                addCount--;
+                              });
+                            } else {}
+                          },
                         ),
                         SizedBox(width: 20),
-                        Text("1", style: TextStyle(fontSize: 25)),
+                        Text("$addCount", style: TextStyle(fontSize: 25)),
                         SizedBox(width: 20),
                         GestureDetector(
                           child: Container(
@@ -136,13 +144,17 @@ class _AddBasketViewState extends State<AddBasketView> {
                               color: AppColors.orangiColor,
                             ),
                           ),
-                          onTap: () {},
+                          onTap: () {
+                            setState(() {
+                              addCount++;
+                            });
+                          },
                         ),
                         SizedBox(width: 130),
                         Row(
                           children: [
                             Text(
-                              widget.price,
+                              "₦ $totalPrice",
                               style: TextStyle(
                                 fontSize: 25,
                                 color: AppColors.blackColor,

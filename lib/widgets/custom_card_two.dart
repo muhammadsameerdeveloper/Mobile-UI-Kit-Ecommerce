@@ -50,8 +50,18 @@ class _CustomCardTwoState extends State<CustomCardTwo> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("$totalPrice"),
-                Icon(Icons.add_circle_outline, color: AppColors.orangiColor),
+                Text("₦ $totalPrice"),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      addCount++;
+                    });
+                  },
+                  child: Icon(
+                    Icons.add_circle_outline,
+                    color: AppColors.orangiColor,
+                  ),
+                ),
               ],
             ),
           ],
