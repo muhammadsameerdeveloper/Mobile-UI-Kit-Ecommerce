@@ -1,4 +1,3 @@
-import 'package:ecommerce/app_data.dart';
 import 'package:ecommerce/utils/app_colors.dart';
 import 'package:ecommerce/utils/size_config.dart';
 import 'package:flutter/material.dart';
@@ -25,9 +24,11 @@ class CustomCard extends StatefulWidget {
 
 class _CustomCardState extends State<CustomCard> {
   bool favorites = false;
+  int addCount = 1;
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
+    int totalPrice = widget.price * addCount;
     return GestureDetector(
       onTap: widget.onTap,
       child: Container(
@@ -72,7 +73,10 @@ class _CustomCardState extends State<CustomCard> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("${(widget.price) * addCount}"),
+                Text(
+                  "$totalPrice",
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
                 GestureDetector(
                   child: Icon(
                     Icons.add_circle_outline,

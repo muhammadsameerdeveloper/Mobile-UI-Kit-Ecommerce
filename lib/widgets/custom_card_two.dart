@@ -2,9 +2,9 @@ import 'package:ecommerce/utils/app_colors.dart';
 import 'package:ecommerce/utils/size_config.dart';
 import 'package:flutter/material.dart';
 
-class CustomCardTwo extends StatelessWidget {
+class CustomCardTwo extends StatefulWidget {
   final String title;
-  final String price;
+  final int price;
   final String image;
   final VoidCallback onTap;
   final Color? color;
@@ -18,16 +18,23 @@ class CustomCardTwo extends StatelessWidget {
   });
 
   @override
+  State<CustomCardTwo> createState() => _CustomCardTwoState();
+}
+
+class _CustomCardTwoState extends State<CustomCardTwo> {
+  int addCount = 1;
+  @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
+    int totalPrice = widget.price * addCount;
     return GestureDetector(
-      onTap: onTap,
+      onTap: widget.onTap,
       child: Container(
         width: SizeConfig.width * 0.38,
         height: SizeConfig.height * 0.2,
         padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: color ?? AppColors.whiteColor,
+          color: widget.color ?? AppColors.whiteColor,
           borderRadius: BorderRadius.circular(15),
         ),
         child: Column(
@@ -36,14 +43,14 @@ class CustomCardTwo extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [Icon(Icons.favorite_border_outlined)],
             ),
-            Image.asset(image, height: 50),
+            Image.asset(widget.image, height: 50),
             SizedBox(height: 5),
-            Text(title),
+            Text(widget.title),
             Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(price),
+                Text("$totalPrice"),
                 Icon(Icons.add_circle_outline, color: AppColors.orangiColor),
               ],
             ),
